@@ -1,0 +1,13 @@
+extends layout
+block head    
+    link(rel='stylesheet' href='/css/timetablejs.css')
+
+block content
+    div(class='timetable' id='timetable')
+
+    script(src='/js/timetable.js')
+    script(src='/js/moment.min.js')
+    script.
+        var events = !{events};
+        moment().format();
+    script(src='/js/index_script.js' )

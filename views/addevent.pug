@@ -1,0 +1,43 @@
+extends layout
+block head
+    link(rel='stylesheet' href='/css/gijgo.min.css')
+    //link(rel='stylesheet' href='/css/bootstrap-select.min.css')
+    
+block content
+    form(method='post', name='addevent')
+        div(class='form-group')
+            label Event name
+            input(type='text', class='form-control', name='ename')
+
+        div(class='form-group')
+            label Teacher
+            input(type='text', class='form-control', name='teacher')
+
+        div(class='form-group')
+            label Place
+            input(type='text', class='form-control', name='place')
+
+        div(class='form-group')
+            label Day
+            select(class='custom-select', name='day')
+                option Monday
+                option Tuesday
+                option Wednesday
+                option Thursday
+                option Friday
+
+        div(class='form-group')
+            label Start time
+            input(id='timepicker1', name='starttime')
+
+        div(class='form-group')
+            label End time
+            input(id='timepicker2', name='endtime')
+
+        button(type='submit' class='btn btn-outline-primary') Submit
+
+    script(src='/js/gijgo.min.js')
+    //script(src='/js/bootstrap-select.min.js')
+    script(src='/js/addevent_script.js')
+    script(src='/js/jquery.validate.min.js')
+    script(src='/js/form_validation.js')
