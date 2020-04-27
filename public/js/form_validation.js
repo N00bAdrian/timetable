@@ -1,3 +1,11 @@
+$.validator.addMethod('greaterThan', (value, element, param) => {
+    console.log(value);
+    console.log($(param).val());
+    var result =  value > $(param).val();
+    console.log(result);
+    return result;
+});
+
 $(() => {
     $('form[name=\'addevent\']').validate({
         rules: {
@@ -6,7 +14,10 @@ $(() => {
             place: 'required',
             day: 'required',
             starttime: 'required',
-            endtime: 'required'
+            endtime: {
+                required: true,
+                greaterThan: '#timepicker1'
+            }
         }, 
 
         messages: {
@@ -15,10 +26,13 @@ $(() => {
             place: 'Place required',
             day: 'Day required',
             starttime: 'Start time required',
-            endtime: 'End time required'
+            endtime: {
+                required: 'End time required',
+                greaterThan: 'End time must be later than start time'
+            }
         },
 
-        submitHandler: (form) => {
+        submitHandler: (form) => {          
             form.submit();
         }
     });

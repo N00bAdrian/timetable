@@ -1,3 +1,8 @@
+# Change Log
+### 27/4/2020
+- Added validation check to ensure end time is greater than start time.
+
+
 # Timetable Web App
 Timetable app set up as a computer science assessment
 - Server-side language: NodeJS (Javascript)
