@@ -5,9 +5,38 @@ block head
 block content
     div(class='timetable' id='timetable')
 
+    div(class='modal fade' id='eventModal' tabindex='-1' role='dialog')
+        div(class='modal-dialog modal-dialog-centered' role='document')
+            div(class='modal-content')
+                div(class='modal-header')
+                    h5(class='modal-title') Modal
+                div(class='modal-body') 
+                    p(id='p_teacher') Teacher
+                    p(id='p_day') Day
+                    p(id='p_time') Time 
+                div(class='modal-footer')
+                    button(type='button' class='btn btn-secondary' data-dismiss='modal') Close
+
     script(src='/js/timetable.js')
-    script(src='/js/moment.min.js')
     script.
         var events = !{events};
-        moment().format();
+        $(function() {
+            $('#eventModal').on('show.bs.modal', (event) => {
+                var modal = $(this);
+                lesson = $(event.relatedTarget);
+
+                var rid = lesson.data('rid');
+                var ename = lesson.data('ename');
+                var teacher = lesson.data('teacher');
+                var day = lesson.data('day');
+                var starttime = lesson.data('starttime');
+                var endtime = lesson.data('endtime');
+
+                modal.find('.modal-title').text(ename);
+                modal.find('.modal-body #p_teacher').text('Teacher: '+teacher);
+                modal.find('.modal-body #p_day').text('Day: '+day);
+                modal.find('.modal-body #p_time').text('Time: '+starttime+' to '+endtime);
+            });
+        })
+        
     script(src='/js/index_script.js' )
