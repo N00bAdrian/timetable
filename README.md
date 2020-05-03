@@ -1,4 +1,6 @@
 # Change Log
+### 3/5/2020
+- Added pop-up modal that shows event details when a timetable event is clicked.
 ### 27/4/2020
 - Added validation check to ensure end time is greater than start time.
 
