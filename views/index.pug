@@ -15,7 +15,9 @@ block content
                     p(id='p_day') Day
                     p(id='p_time') Time 
                 div(class='modal-footer')
-                    button(type='button' class='btn btn-secondary' data-dismiss='modal') Close
+                    a(id='btn_edit' class='btn btn-primary') Edit
+                    a(id='btn_delete' class='btn btn-danger') Delete
+                    button(type='button' class='btn btn-outline-secondary' data-dismiss='modal') Close
 
     script(src='/js/timetable.js')
     script.
@@ -36,6 +38,8 @@ block content
                 modal.find('.modal-body #p_teacher').text('Teacher: '+teacher);
                 modal.find('.modal-body #p_day').text('Day: '+day);
                 modal.find('.modal-body #p_time').text('Time: '+starttime+' to '+endtime);
+                modal.find('.modal-footer #btn_edit').attr('href', '/events/edit'+rid);
+                modal.find('.modal-footer #btn_delete').attr('href', '/events/delete/'+rid);
             });
         })
         

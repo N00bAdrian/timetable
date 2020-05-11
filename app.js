@@ -10,6 +10,11 @@ app.set('view engine', 'pug')
 
 app.use(express.static(path.join(__dirname, 'public')))
 
+/*app.use(require('connect-flash')())
+app.use((req, res, next) => {
+    res.locals.messages = require('express-messages')(req,res)
+})*/
+
 const index = require('./routes/index')
 app.use('/', index)
 

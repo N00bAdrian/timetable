@@ -29,4 +29,13 @@ router.post('/addevent', (req, res) => {
     })    
 })
 
+router.get('/delete/:rid', (req, res) => {
+    rid = req.params.rid 
+    db.run('DELETE FROM event WHERE rid=?', rid, (err) => {
+        if (err) throw err
+        //req.flash('success', 'Event deleted')
+        res.redirect('/')
+    })
+})
+
 module.exports = router

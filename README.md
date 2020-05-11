@@ -1,4 +1,7 @@
 # Change Log
+### 11/5/2020
+- Added delete function to the delete button
+- Added edit and delete modal buttons (edit button currently not in use)
 ### 3/5/2020
 - Added pop-up modal that shows event details when a timetable event is clicked.
 ### 27/4/2020
